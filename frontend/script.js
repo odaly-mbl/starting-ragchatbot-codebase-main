@@ -122,26 +122,25 @@ function addMessage(content, type, sources = null, isWelcome = false) {
     let html = `<div class="message-content">${displayContent}</div>`;
     
     if (sources && sources.length > 0) {
-        const sourceLinks = sources.map(source => {
+        const sourceItems = sources.map(source => {
             // Handle both old format (string) and new format (object) for backwards compatibility
+            let sourceContent;
             if (typeof source === 'string') {
-                return escapeHtml(source);
-            }
-
-            // New format: structured object with text and url
-            if (source.url) {
-                // Render as clickable link
-                return `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer" class="source-link">${escapeHtml(source.text)}</a>`;
+                sourceContent = escapeHtml(source);
+            } else if (source.url) {
+                // New format: structured object with text and url - render as clickable link
+                sourceContent = `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer" class="source-link">${escapeHtml(source.text)}</a>`;
             } else {
                 // No URL available - render as plain text
-                return escapeHtml(source.text);
+                sourceContent = escapeHtml(source.text);
             }
-        }).join(', ');
+            return `<div class="source-item">${sourceContent}</div>`;
+        }).join('');
 
         html += `
             <details class="sources-collapsible">
                 <summary class="sources-header">Sources</summary>
-                <div class="sources-content">${sourceLinks}</div>
+                <div class="sources-content">${sourceItems}</div>
             </details>
         `;
     }

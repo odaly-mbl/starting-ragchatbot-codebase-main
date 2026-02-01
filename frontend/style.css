@@ -241,29 +241,48 @@ header h1 {
 }
 
 .sources-content {
-    padding: 0 0.5rem 0.25rem 1.5rem;
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
     color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Individual source item styling */
+.source-item {
+    padding: 0.5rem 0.75rem;
+    background: var(--background);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+.source-item:hover {
+    background: var(--surface-hover);
+    border-left-color: var(--primary-hover);
 }
 
 /* Clickable source link styling */
 .source-link {
-    color: var(--primary-color);
+    color: #60a5fa;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.2s ease;
+    font-size: 0.9rem;
 }
 
 .source-link:hover {
-    color: var(--primary-hover);
-    border-bottom-color: var(--primary-hover);
+    color: #93c5fd;
+    border-bottom-color: #93c5fd;
 }
 
 .source-link:visited {
-    color: #7c3aed;
+    color: #a78bfa;
 }
 
 .source-link:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid #60a5fa;
     outline-offset: 2px;
     border-radius: 2px;
 }
