@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.min.js
+
+# Backend
+backend/
+
+# Database
+chroma_db/
+
+# Configuration
+*.config.js
