@@ -1,0 +1,21 @@
+{
+  "name": "rag-chatbot-frontend",
+  "version": "1.0.0",
+  "description": "Frontend code quality tools for RAG Chatbot",
+  "scripts": {
+    "lint": "eslint frontend/**/*.js",
+    "lint:fix": "eslint frontend/**/*.js --fix",
+    "format": "prettier --write \"frontend/**/*.{js,css,html}\"",
+    "format:check": "prettier --check \"frontend/**/*.{js,css,html}\"",
+    "quality": "npm run lint && npm run format:check",
+    "quality:fix": "npm run lint:fix && npm run format"
+  },
+  "keywords": ["rag", "chatbot", "frontend"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5"
+  }
+}
